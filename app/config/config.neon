@@ -20,7 +20,8 @@ session:
 
 
 services:
-	- App\Dao\IUserDaoFactory
+	- App\Dao\Doctrine\UserDaoDoctrine
+	- App\Services\IUserServiceFactory
 	- App\Model\UserManager
 	- App\Forms\SignFormFactory
 	router: App\RouterFactory::createRouter
