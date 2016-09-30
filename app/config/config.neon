@@ -20,9 +20,20 @@ session:
 
 
 services:
+	authenticator: App\Model\UserManager
+	authorizator:
+		class: Nette\Security\Permission
+		setup:
+			- addRole('guest')
+			- addRole('member')
+			- addRole('admin')
+			- addResource('article')
+			- addResource('comment')
+			- allow('guest', 'article')
+			- allow('member', 'comment')
+			- allow('admin')
 	- App\Dao\Doctrine\UserDaoDoctrine
 	- App\Services\IUserServiceFactory
-	- App\Model\UserManager
 	- App\Forms\SignFormFactory
 	router: App\RouterFactory::createRouter
 

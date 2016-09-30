@@ -7,7 +7,7 @@ use Kdyby\Doctrine\Entities\BaseEntity;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Table(name="users")
  */
 class User extends BaseEntity
 {
@@ -35,8 +35,7 @@ class User extends BaseEntity
     protected $last_login;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Roles", inversedBy="users", cascade={"persist"})
-     * @ORM\JoinTable(name="users_roles")
+     * @ORM\Column(type="string")
      */
     protected $roles;
 
