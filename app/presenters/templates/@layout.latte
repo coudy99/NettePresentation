@@ -17,14 +17,28 @@
 </head>
 
 <body>
+	{include 'components/menu.latte'}
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
+	<div class="content">
 	{include content}
+	</div>
 
 	{block scripts}
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
 	<script src="{$basePath}/js/main.js"></script>
+	<script type="text/javascript">
+		$(window).scroll(function() {
+			$('menu').css({'-webkit-transform':'scaleY(0.8)'});
+			$('menu').css("height: 1200px");
+			console.log($(window).hasClass("menu"));
+						/*'-moz-transform':'scaleY(0.8)',
+						'-o-transform':'scaleY(0.8)',
+						'transform':'scaleY(0.8)',
+						'transform-origin':'top center'});*/
+		});
+	</script>
 	{/block}
 </body>
 </html>
